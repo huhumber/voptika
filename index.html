@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ОптикаНаДом — Выездная диагностика зрения в Москве</title>
+<meta name="description" content="Проверка зрения и подбор очков на дому. Оптометрист приедет с оборудованием. Цены ниже салонов на 30%. Корпоративные выезды.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#1e293b;background:#f8fafc}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;padding:16px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(2,132,199,0.2)}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:40px;height:40px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo-text{font-weight:700;font-size:18px}
+.logo-sub{font-size:11px;opacity:.85}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:#fff;text-decoration:none;font-size:14px;opacity:.9;transition:.3s}
+.nav-links a:hover{opacity:1;text-decoration:underline}
+.phone-btn{background:rgba(255,255,255,.2);padding:8px 18px;border-radius:20px;font-size:14px;font-weight:600;color:#fff;text-decoration:none;transition:.3s}
+.phone-btn:hover{background:rgba(255,255,255,.35)}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:70px 0 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:rgba(255,255,255,.05);border-radius:50%}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:42px;font-weight:800;line-height:1.15;margin-bottom:16px}
+.hero h1 span{color:#fef08a}
+.hero p{font-size:18px;opacity:.92;margin-bottom:28px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:#fff;color:#0284c7;padding:14px 32px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;display:inline-block;transition:.3s;box-shadow:0 4px 20px rgba(0,0,0,.15);border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.btn-secondary{background:rgba(255,255,255,.15);color:#fff;padding:14px 32px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;display:inline-block;transition:.3s;border:1px solid rgba(255,255,255,.3)}
+.btn-secondary:hover{background:rgba(255,255,255,.25)}
+.btn-accent{background:#fef08a;color:#854d0e;padding:14px 32px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;display:inline-block;transition:.3s;box-shadow:0 4px 20px rgba(254,240,138,.3);border:none;cursor:pointer}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(254,240,138,.4)}
+.hero-features{display:flex;gap:24px;margin-top:32px;font-size:14px;opacity:.9}
+.hero-features div{display:flex;align-items:center;gap:6px}
+.hero-card{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,.2)}
+
+/* Steps */
+.steps{padding:70px 0;background:#fff}
+.steps h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:12px;color:#0f172a}
+.steps-sub{text-align:center;color:#64748b;margin-bottom:50px;font-size:16px}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step{text-align:center;padding:24px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;transition:.3s}
+.step:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.step-num{width:48px;height:48px;background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;margin:0 auto 16px}
+.step h4{font-size:16px;margin-bottom:8px;color:#0f172a}
+.step p{font-size:14px;color:#64748b}
+
+/* Why */
+.why{padding:70px 0;background:#f0f9ff}
+.why h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:50px;color:#0f172a}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:#fff;padding:24px;border-radius:16px;border:1px solid #e0f2fe;display:flex;gap:16px;align-items:flex-start;transition:.3s}
+.why-card:hover{box-shadow:0 8px 30px rgba(14,165,233,.1)}
+.why-icon{font-size:28px;flex-shrink:0}
+.why-card h4{font-size:16px;margin-bottom:6px;color:#0f172a}
+.why-card p{font-size:14px;color:#64748b}
+
+/* Calculator */
+.calc{padding:70px 0;background:#fff}
+.calc h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:12px;color:#0f172a}
+.calc-sub{text-align:center;color:#64748b;margin-bottom:40px;font-size:16px}
+.calc-inner{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:32px;max-width:600px;margin:0 auto}
+.calc-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #e2e8f0}
+.calc-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.calc-label{font-size:15px;color:#475569}
+.calc-select{padding:8px 14px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-size:14px;min-width:200px;cursor:pointer}
+.calc-total{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:20px;border-top:2px solid #0ea5e9}
+.calc-total-label{font-size:18px;font-weight:700;color:#0f172a}
+.calc-total-value{font-size:28px;font-weight:800;color:#0284c7}
+.calc-note{font-size:13px;color:#94a3b8;text-align:center;margin-top:16px}
+
+/* B2B Section */
+.b2b{padding:70px 0;background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;position:relative}
+.b2b::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5}
+.b2b-inner{position:relative;z-index:1}
+.b2b h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:12px}
+.b2b-sub{text-align:center;opacity:.8;margin-bottom:50px;font-size:16px}
+.b2b-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px}
+.b2b-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.15);text-align:center;transition:.3s}
+.b2b-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.12)}
+.b2b-card h4{font-size:18px;margin-bottom:8px}
+.b2b-card .price{font-size:28px;font-weight:800;color:#fef08a;margin:12px 0}
+.b2b-card ul{list-style:none;text-align:left;font-size:14px;opacity:.85}
+.b2b-card ul li{padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.b2b-card ul li:last-child{border-bottom:none}
+.b2b-cta{text-align:center;margin-top:32px}
+
+/* Form */
+.form-section{padding:70px 0;background:#fff}
+.form-section h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:12px;color:#0f172a}
+.form-sub{text-align:center;color:#64748b;margin-bottom:40px;font-size:16px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.form-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:32px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;color:#64748b;margin-bottom:6px;font-weight:600}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;color:#1e293b;font-size:15px;outline:none;transition:.3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.1)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#94a3b8}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:.3s;box-shadow:0 4px 20px rgba(14,165,233,.3)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(14,165,233,.4)}
+.form-success{display:none;padding:16px;background:#ecfdf5;border:1px solid #bbf7d0;border-radius:10px;color:#166534;text-align:center;margin-top:16px;font-size:14px}
+.form-info h3{font-size:22px;margin-bottom:16px;color:#0f172a}
+.form-info p{color:#64748b;margin-bottom:20px;font-size:15px}
+.info-list{list-style:none}
+.info-list li{padding:10px 0;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:10px;font-size:15px;color:#475569}
+.info-list li:last-child{border-bottom:none}
+
+/* Reviews */
+.reviews{padding:70px 0;background:#f8fafc}
+.reviews h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:50px;color:#0f172a}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review-card{background:#fff;padding:24px;border-radius:16px;border:1px solid #e2e8f0;transition:.3s}
+.review-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.06)}
+.review-stars{color:#fbbf24;font-size:16px;margin-bottom:12px}
+.review-text{font-size:15px;color:#475569;margin-bottom:16px;font-style:italic;line-height:1.6}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:44px;height:44px;background:linear-gradient(135deg,#0ea5e9,#0284c7);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px}
+.review-name{font-weight:700;color:#0f172a;font-size:14px}
+.review-date{font-size:12px;color:#94a3b8}
+
+/* FAQ */
+.faq{padding:70px 0;background:#fff}
+.faq h2{text-align:center;font-size:32px;font-weight:800;margin-bottom:50px;color:#0f172a}
+.faq-item{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:18px 24px;font-weight:700;color:#0f172a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px;transition:.3s}
+.faq-q:hover{background:#f0f9ff}
+.faq-a{padding:0 24px;max-height:0;overflow:hidden;transition:.3s;color:#475569;font-size:15px}
+.faq-a.open{padding:0 24px 18px;max-height:200px}
+.faq-icon{transition:.3s;font-size:12px;color:#94a3b8}
+.faq-q.active .faq-icon{transform:rotate(180deg)}
+
+/* Footer */
+.footer{background:#0f172a;color:#94a3b8;padding:50px 0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand .logo-text{color:#fff;font-size:20px;font-weight:700;margin-bottom:8px}
+.footer-brand p{font-size:14px;line-height:1.7}
+.footer h4{color:#fff;font-size:14px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+.footer a{color:#94a3b8;text-decoration:none;display:block;padding:6px 0;font-size:14px;transition:.3s}
+.footer a:hover{color:#0ea5e9}
+.footer-bottom{border-top:1px solid #1e293b;padding-top:24px;text-align:center;font-size:13px}
+
+/* Mobile */
+@media(max-width:768px){
+.hero-inner,.form-grid,.why-grid,.steps-grid,.reviews-grid,.footer-grid,.b2b-grid{grid-template-columns:1fr}
+.hero h1{font-size:28px}
+.hero-features{flex-direction:column;gap:8px}
+.calc-row{flex-direction:column;align-items:flex-start;gap:8px}
+.calc-select{width:100%}
+.header-inner{flex-direction:column;gap:12px}
+.nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+<div class="container header-inner">
+<div class="logo">
+<div class="logo-icon">👁️</div>
+<div>
+<div class="logo-text">ОптикаНаДом</div>
+<div class="logo-sub">Выездная диагностика зрения</div>
+</div>
+</div>
+<div class="nav-links">
+<a href="#how">Как это работает</a>
+<a href="#calc">Калькулятор</a>
+<a href="#b2b">Корпоративным клиентам</a>
+<a href="#form">Записаться</a>
+</div>
+<a href="tel:+79990000000" class="phone-btn">📞 +7 (999) 000-00-00</a>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-inner">
+<div>
+<h1>Проверка зрения<br><span>у вас дома</span></h1>
+<p>Оптометрист приедет с профессиональным оборудованием в удобное время. Подберём очки за 30 минут. Цены ниже салонов на 30% — нет аренды торговых площадей.</p>
+<div class="hero-btns">
+<a href="#form" class="btn-primary">📝 Записаться на диагностику</a>
+<a href="#b2b" class="btn-accent">🏢 Корпоративные выезды</a>
+</div>
+<div class="hero-features">
+<div>✅ Бесплатный выезд при заказе</div>
+<div>🚗 Москва и МО</div>
+<div>⏱️ 30–40 минут</div>
+<div>📦 Очки за 2–5 дней</div>
+</div>
+</div>
+<div class="hero-card">
+<div style="background:#fef08a;color:#854d0e;padding:4px 12px;border-radius:20px;font-weight:700;font-size:14px;display:inline-block;margin-bottom:12px">Акция: первый выезд бесплатно</div>
+<h3 style="font-size:20px;margin-bottom:16px">Что входит в выезд:</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;font-size:14px;opacity:.9">
+<div>🔬 Авторефрактометр</div>
+<div>👓 50+ оправ</div>
+<div>📋 Пробный набор</div>
+<div>📏 Пупиллометр</div>
+<div>💡 Щелевая лампа</div>
+<div>📱 Каталог 500+ моделей</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Steps -->
+<section class="steps" id="how">
+<div class="container">
+<h2>Как это работает</h2>
+<p class="steps-sub">4 простых шага — от заявки до новых очков</p>
+<div class="steps-grid">
+<div class="step">
+<div class="step-num">1</div>
+<h4>Оставляете заявку</h4>
+<p>Выбираете удобную дату и время на сайте или по телефону. Указываете адрес и причину визита.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h4>Мастер приезжает к вам</h4>
+<p>В назначенное время оптометрист приезжает с оборудованием и ассортиментом оправ.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h4>Диагностика и подбор</h4>
+<p>Проверяем зрение, подбираем оправу, оформляем заказ. Всё занимает 30–40 минут.</p>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<h4>Получаете очки</h4>
+<p>Готовые очки доставляем курьером или привозим сами через 2–5 рабочих дней.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Why -->
+<section class="why">
+<div class="container">
+<h2>Почему выгоднее, чем в салоне</h2>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">💰</div>
+<div>
+<h4>Экономия до 30%</h4>
+<p>Нет аренды торговых площадей и зарплаты продавцам — вы платите только за качество.</p>
+</div>
+</div>
+<div class="why-card">
+<div class="why-icon">🏠</div>
+<div>
+<h4>Комфорт дома</h4>
+<p>Глаз расслаблен в привычной обстановке — диагностика точнее. Не нужно ехать и стоять в очередях.</p>
+</div>
+</div>
+<div class="why-card">
+<div class="why-icon">👶</div>
+<div>
+<h4>Детям — без стресса</h4>
+<p>Ребёнок спокойнее проходит обследование дома. Можно примерить оправы без истерик.</p>
+</div>
+</div>
+<div class="why-card">
+<div class="why-icon">⏰</div>
+<div>
+<h4>Вечерние слоты</h4>
+<p>Работаем до 21:00. Запишитесь после работы — не нужно отпрашиваться.</p>
+</div>
+</div>
+<div class="why-card">
+<div class="why-icon">🔒</div>
+<div>
+<h4>Без давления продаж</h4>
+<p>Никакого навязчивого сервиса. Выбирайте спокойно, сколько угодно времени.</p>
+</div>
+</div>
+<div class="why-card">
+<div class="why-icon">🏢</div>
+<div>
+<h4>Корпоративные выезды</h4>
+<p>Приедем в офис и проверим зрение всей команде. Скидки от 10 человек.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Calculator -->
+<section class="calc" id="calc">
+<div class="container">
+<h2>Рассчитайте стоимость</h2>
+<p class="calc-sub">Выберите комплектацию — увидите цену мгновенно</p>
+<div class="calc-inner">
+<div class="calc-row">
+<span class="calc-label">Оправа</span>
+<select class="calc-select" id="cFrame" onchange="updateTotal()">
+<option value="0">Не нужна</option>
+<option value="2500" selected>Классическая (2 500 ₽)</option>
+<option value="4500">Премиум (4 500 ₽)</option>
+<option value="8000">Дизайнерская (8 000 ₽)</option>
+</select>
+</div>
+<div class="calc-row">
+<span class="calc-label">Линзы</span>
+<select class="calc-select" id="cLens" onchange="updateTotal()">
+<option value="0">Не нужны</option>
+<option value="3500" selected>Стандартные (3 500 ₽)</option>
+<option value="6000">Астигматические (6 000 ₽)</option>
+<option value="12000">Прогрессивные (12 000 ₽)</option>
+</select>
+</div>
+<div class="calc-row">
+<span class="calc-label">Покрытие / дополнительно</span>
+<select class="calc-select" id="cExtra" onchange="updateTotal()">
+<option value="0">Ничего</option>
+<option value="1500">Фотохром (1 500 ₽)</option>
+<option value="2000">Антиблик (2 000 ₽)</option>
+<option value="3500">Фотохром + Антиблик (3 500 ₽)</option>
+</select>
+</div>
+<div class="calc-row">
+<span class="calc-label">Выезд специалиста</span>
+<span style="color:#16a34a;font-weight:700">БЕСПЛАТНО*</span>
+</div>
+<div class="calc-total">
+<span class="calc-total-label">Итого:</span>
+<span class="calc-total-value" id="cTotal">6 000 ₽</span>
+</div>
+<p class="calc-note">* Бесплатно при заказе очков. Без покупки — 1 500 ₽ (включает полную диагностику)</p>
+</div>
+</div>
+</section>
+
+<!-- B2B Section -->
+<section class="b2b" id="b2b">
+<div class="container b2b-inner">
+<h2>🏢 Корпоративные выезды</h2>
+<p class="b2b-sub">Проверим зрение вашей команды прямо в офисе. Экономия времени и забота о сотрудниках.</p>
+<div class="b2b-grid">
+<div class="b2b-card">
+<h4>Мини</h4>
+<div class="price">15 000 ₽</div>
+<div style="font-size:13px;opacity:.7;margin-bottom:12px">5–10 человек</div>
+<ul>
+<li>✓ Проверка зрения всем</li>
+<li>✓ Подбор оправ</li>
+<li>✓ Скидка 10% на очки</li>
+<li>✓ Отчёт для HR</li>
+</ul>
+</div>
+<div class="b2b-card">
+<h4>Стандарт</h4>
+<div class="price">25 000 ₽</div>
+<div style="font-size:13px;opacity:.7;margin-bottom:12px">11–25 человек</div>
+<ul>
+<li>✓ Всё из пакета Мини</li>
+<li>✓ Скидка 15% на очки</li>
+<li>✓ Приоритетная доставка</li>
+<li>✓ Брендированные футляры</li>
+</ul>
+</div>
+<div class="b2b-card">
+<h4>Бизнес ⭐</h4>
+<div class="price">40 000 ₽</div>
+<div style="font-size:13px;opacity:.7;margin-bottom:12px">26–50 человек</div>
+<ul>
+<li>✓ Всё из пакета Стандарт</li>
+<li>✓ Скидка 20% на очки</li>
+<li>✓ 2 мастера одновременно</li>
+<li>✓ Рассрочка 0% на 3 мес</li>
+</ul>
+</div>
+<div class="b2b-card">
+<h4>Корпорат</h4>
+<div class="price">70 000 ₽</div>
+<div style="font-size:13px;opacity:.7;margin-bottom:12px">51–100 человек</div>
+<ul>
+<li>✓ Всё из пакета Бизнес</li>
+<li>✓ Скидка 25% на очки</li>
+<li>✓ 3 мастера + координатор</li>
+<li>✓ Ежегодное обслуживание</li>
+</ul>
+</div>
+</div>
+<div class="b2b-cta">
+<a href="#form" class="btn-accent" style="font-size:18px;padding:16px 40px">📋 Оставить заявку на корпоративный выезд</a>
+<p style="margin-top:16px;font-size:14px;opacity:.7">Или напишите нам: <a href="mailto:b2b@opticanadom.ru" style="color:#fef08a">b2b@opticanadom.ru</a></p>
+</div>
+</div>
+</section>
+
+<!-- Form -->
+<section class="form-section" id="form">
+<div class="container">
+<h2>Записаться на диагностику</h2>
+<p class="form-sub">Выберите удобное время — мастер свяжется за 2 часа до выезда</p>
+<div class="form-grid">
+<div class="form-card">
+<form id="orderForm" onsubmit="return submitForm(event)">
+<div class="form-row">
+<div class="form-group">
+<label>Ваше имя</label>
+<input type="text" id="fName" placeholder="Иван Петров" required>
+</div>
+<div class="form-group">
+<label>Телефон</label>
+<input type="tel" id="fPhone" placeholder="+7 (999) 000-00-00" required>
+</div>
+</div>
+<div class="form-group">
+<label>Адрес (где провести диагностику)</label>
+<input type="text" id="fAddress" placeholder="г. Москва, ул. Примерная, д. 1, кв. 10" required>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>Дата</label>
+<input type="date" id="fDate" required>
+</div>
+<div class="form-group">
+<label>Время</label>
+<select id="fTime" required>
+<option value="">Выберите</option>
+<option>10:00</option>
+<option>12:00</option>
+<option>14:00</option>
+<option>16:00</option>
+<option>18:00</option>
+<option>20:00</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label>Причина визита</label>
+<select id="fReason" required>
+<option value="">Выберите</option>
+<option>Первичная проверка зрения</option>
+<option>Подбор новых очков</option>
+<option>Перепроверка рецепта</option>
+<option>Подбор контактных линз</option>
+<option>После операции (лазер/катаракта)</option>
+<option>Ребенку (детская оптика)</option>
+<option>Корпоративный выезд</option>
+</select>
+</div>
+<div class="form-group">
+<label>Комментарий</label>
+<textarea id="fComment" rows="3" placeholder="Есть ли текущие очки? Какие жалобы? Для корп. выезда — укажите количество человек."></textarea>
+</div>
+<button type="submit" class="submit-btn">✅ Отправить заявку</button>
+<div class="form-success" id="formSuccess">🎉 Заявка отправлена! Мы перезвоним в течение 15 минут.</div>
+</form>
+</div>
+<div class="form-info">
+<h3>Что будет дальше?</h3>
+<p>После отправки заявки:</p>
+<ul class="info-list">
+<li>📞 Перезвоним за 15 минут</li>
+<li>📅 Подтвердим дату и время</li>
+<li>🚗 Мастер приедет с оборудованием</li>
+<li>👓 Подберём и оформим заказ</li>
+<li>📦 Доставим очки через 2–5 дней</li>
+</ul>
+<div style="margin-top:24px;padding:20px;background:#f0f9ff;border-radius:12px;border:1px solid #e0f2fe">
+<div style="font-weight:700;margin-bottom:8px;color:#0f172a">📍 Работаем:</div>
+<div style="font-size:14px;color:#64748b">Москва и Московская область<br>Ежедневно 10:00 – 21:00</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews">
+<div class="container">
+<h2>Отзывы клиентов</h2>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Мастер приехал вечером после работы. Проверил зрение у всей семьи — меня, мужа и ребёнка. Очень удобно, не нужно никуда ехать. Очки привезли через 3 дня."</div>
+<div class="review-author">
+<div class="review-avatar">АС</div>
+<div>
+<div class="review-name">Анна Смирнова</div>
+<div class="review-date">июль 2026</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Долго не решался поменять очки — не хотелось тратить выходной на поход по салонам. Здесь всё приехало ко мне. Примерял спокойно, посоветовался с женой по видео."</div>
+<div class="review-author">
+<div class="review-avatar">ДК</div>
+<div>
+<div class="review-name">Дмитрий Козлов</div>
+<div class="review-date">июнь 2026</div>
+</div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Заказывала для мамы — она плохо ходит, в оптику не доберётся. Мастер был очень вежливый, всё объяснил. Мама довольна, очки сидят идеально."</div>
+<div class="review-author">
+<div class="review-avatar">МВ</div>
+<div>
+<div class="review-name">Мария Волкова</div>
+<div class="review-date">август 2026</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+<div class="container">
+<h2>Частые вопросы</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Сколько времени занимает диагностика?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Полная проверка зрения и подбор оправы занимают 30–40 минут. Если нужна сложная диагностика (прогрессивные линзы, астигматизм) — до 60 минут.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>А если я не куплю очки — сколько стоит выезд?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Если после диагностики вы решите не заказывать очки — стоимость выезда 1 500 ₽. Эта сумма включает полную проверку зрения и консультацию.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Какое оборудование вы привозите?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Авторефрактометр, пробный набор линз, цифровой пупиллометр, портативная щелевая лампа и набор из 50+ оправ для примерки. Всё сертифицировано.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Можно ли проверить зрение ребёнку?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Да, мы работаем с детьми от 3 лет. Домашняя обстановка помогает ребёнку расслабиться и пройти диагностику без стресса.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Как быстро будут готовы очки?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Стандартные линзы — 2–3 рабочих дня. Сложные (прогрессивные, астигматические) — 4–5 дней. Доставляем курьером или привозим сами.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Как организовать корпоративный выезд?</span>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-a">Оставьте заявку на сайте или напишите на b2b@opticanadom.ru. Укажите количество сотрудников и желаемую дату. Мы подготовим коммерческое предложение в течение 2 часов.</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="logo-text">👁️ ОптикаНаДом</div>
+<p>Выездная диагностика зрения и подбор очков на дому в Москве и Московской области. Профессиональное оборудование, персональный подход, цены ниже салонов.</p>
+</div>
+<div>
+<h4>Услуги</h4>
+<a href="#">Проверка зрения</a>
+<a href="#">Подбор очков</a>
+<a href="#">Контактные линзы</a>
+<a href="#">Детская оптика</a>
+<a href="#b2b">Корпоративные выезды</a>
+</div>
+<div>
+<h4>Клиентам</h4>
+<a href="#how">Как это работает</a>
+<a href="#calc">Калькулятор</a>
+<a href="#">Отзывы</a>
+<a href="#">Вопросы и ответы</a>
+</div>
+<div>
+<h4>Контакты</h4>
+<a href="tel:+79990000000">+7 (999) 000-00-00</a>
+<a href="mailto:info@opticanadom.ru">info@opticanadom.ru</a>
+<a href="mailto:b2b@opticanadom.ru">b2b@opticanadom.ru (B2B)</a>
+<a href="#">Москва и МО</a>
+<a href="#">Ежедневно 10:00–21:00</a>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 ОптикаНаДом. Все права защищены.
+</div>
+</div>
+</footer>
+
+<script>
+function updateTotal(){
+const f=parseInt(document.getElementById('cFrame').value)||0;
+const l=parseInt(document.getElementById('cLens').value)||0;
+const e=parseInt(document.getElementById('cExtra').value)||0;
+document.getElementById('cTotal').innerText=(f+l+e).toLocaleString('ru-RU')+' ₽';
+}
+function submitForm(e){
+e.preventDefault();
+document.getElementById('formSuccess').style.display='block';
+document.getElementById('orderForm').reset();
+setTimeout(()=>{document.getElementById('formSuccess').style.display='none';},5000);
+return false;
+}
+function toggleFaq(el){
+const a=el.nextElementSibling;
+const isOpen=a.classList.contains('open');
+document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('active'));
+if(!isOpen){a.classList.add('open');el.classList.add('active');}
+}
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('fDate').setAttribute('min',today);
+updateTotal();
+</script>
+</body>
+</html>
